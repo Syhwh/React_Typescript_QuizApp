@@ -3,7 +3,7 @@ import { Difficulty, Question } from './types';
 
 
 
-export const fetchQuestions = async (amount: number, difficulty: Difficulty) => {
+export const fetchQuestions = async (amount: number, difficulty: string) => {
 	const endpoint = `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=multiple`
 	const data = await (await fetch(endpoint)).json();
 	return data.results.map((question: Question) => ({

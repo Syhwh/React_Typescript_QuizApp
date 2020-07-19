@@ -59,3 +59,11 @@ padding:0 40px;
 }
 
 `
+
+export const SettingWrapper = styled.div`
+display:flex;
+ form{
+color:red;
+}
+
+`
