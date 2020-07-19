@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
 import { QuestionCard } from './components/QuestionCard';
+import { Animation } from './components/Animation';
 import { fetchQuestions } from './helpers/API';
 import { QuestionState, Difficulty, AnswerObject } from './helpers/types';
+
+import { GlobalStyle, Wrapper } from './App.styles'
 
 import './App.css';
 
@@ -52,9 +55,11 @@ const App: React.FC = () => {
     nextQuestion === TOTAL_QUESTIONS ? setGameOver(true) : setNumber(nextQuestion)
   }
 
-  return (
-    <div className="App">
-      <h1>Quiz App</h1>
+  return (<>
+    <GlobalStyle />
+    <Animation />
+    <Wrapper>
+      <h1>Trivia App</h1>
       {
         gameOver || userAnswers.length === TOTAL_QUESTIONS ?
           (
@@ -86,7 +91,8 @@ const App: React.FC = () => {
             <button className="next" onClick={nextQuestion}>Next Question</button>
           ) : null
       }
-    </div>
+    </Wrapper>
+  </>
   );
 }
 
